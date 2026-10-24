@@ -67,15 +67,16 @@ Las nuevas líneas que han aparecido han sido estas:  "ghcr.io/devcontainers/fea
 | Code Spell Checker      |   Sirve para dectectar errores ortográficos|  Al tratarse de un comando en ingles las palabras en español vienen subrayadas como si tuvieran un error ortográfico |  No, porque como vamos a escribir en español no necesitamos un comando en inglés. |
 
 ¿Qué diferencia hay entre instalar una extensión **solo desde el panel** y añadirla **también a `devcontainer.json`**?
-
-> La diferencia es que cuando lo instalas solo desde el panel , la extensión no lo puedes utilizar donde tu quieres, mientras que cuando la añades a donde quieres puedes utilizar la extension donde en el archivo que quieras trabajar.
-
+La diferencia es que cuando lo instalas solo desde el panel , la extensión no lo puedes utilizar donde tu quieres, mientras que cuando la añades a donde quieres puedes utilizar la extension donde en el archivo que quieras trabajar.
+> 
 ---
 
 ## 3. Personalización y automatización (CE 2.c)
 
-- **Tema visual elegido** (paso 10) y por qué: El tema visual elegido ha sido Rojo red, porque me gustaba la combinación entre escribir en rojo y amarillo
-- **Ajuste del proyecto** (paso 10). ¿Qué archivo se ha creado y qué contiene? El archivo que ha aparecido ha sido .vscode/settings.json que contiene "editor.formatOnSave":true
+- **Tema visual elegido** (paso 10) y por qué: 
+El tema visual elegido ha sido Rojo red, porque me gustaba la combinación entre escribir en rojo y amarillo
+- **Ajuste del proyecto** (paso 10). ¿Qué archivo se ha creado y qué contiene? 
+El archivo que ha aparecido ha sido .vscode/settings.json que contiene "editor.formatOnSave":true
 
 ```
 {
@@ -83,7 +84,8 @@ Las nuevas líneas que han aparecido han sido estas:  "ghcr.io/devcontainers/fea
 }
 ```
 
-- **Atajo de teclado** (paso 11). ¿Qué acción, qué combinación y para qué te sirve? Para crear un atajo de teclado, primero te tienes que meter en ajuste y entrar en la sección Métodos abreviados de teclado y buscar la palabra rebuild container. La combinación del atajo es : Ctrl+Option+R. EL atajo sirve para reconstruir el entorno facilmente.
+- **Atajo de teclado** (paso 11). ¿Qué acción, qué combinación y para qué te sirve? 
+Para crear un atajo de teclado, primero te tienes que meter en ajuste y entrar en la sección Métodos abreviados de teclado y buscar la palabra rebuild container. La combinación del atajo es : Ctrl+Option+R. EL atajo sirve para reconstruir el entorno facilmente.
 - **Snippet** (paso 12). ¿Qué escribes y qué aparece? 
 Para los Snippets tiene que entrar en ajuste, luego en paletas de comandos y tienes que buscar Configure Snippets. Con este comando puedes crear un Snippets o configurar los Snippets de nuestro repositorio. Cuando lo creas, aparecera un archivo llamado .vscode/nombre que hemos elegido.code-snippets.
 - **Automatización al crear el entorno** (paso 14). ¿Qué hace `postCreateCommand` y qué archivos/carpetas han aparecido después de reconstruir? 
@@ -123,8 +125,8 @@ TOTAL                         268.50 EUR
 
 | Lenguaje | Archivo fuente | Herramienta que lo traduce | Archivo generado | Cómo se ejecuta |
 |----------|----------------|----------------------------|------------------|-----------------|
-| Java       | `src/java/Factura.java` |   |   |   |
-| TypeScript | `src/ts/factura.ts`     |   |   |   |
+| Java       | `src/java/Factura.java` |  javac |  factura.jar |  Se ejecuta con java -jar |
+| TypeScript | `src/ts/factura.ts`     | npm run build  | factura.tsc  | Se ejecuta con Node.js  |
 
 **Opcional:** ¿has podido ejecutar los mismos archivos desde JupyterLab (paso 19)? ¿Por qué funciona en los dos IDE sin instalar nada más?
 
@@ -136,38 +138,55 @@ TOTAL                         268.50 EUR
 
 | Elemento | ¿Quién lo actualiza? | Modo (automático / manual / ninguno) | Qué he configurado yo |
 |----------|----------------------|--------------------------------------|-----------------------|
-| El editor de Codespaces |   |   |   |
-| Las extensiones         |   |   |   |
-| Java                    |   |   |   |
-| Node.js                 |   |   |   |
-| Dependencias npm (lodash, typescript…) |   |   |   |
+| El editor de Codespaces |  GitHub | Automático  | Configuración del rebuild container  |
+| Las extensiones         |  Visual Code | Automático  | Instalación de extensiones para el repositorio  |
+| Java                    |  EL equipo que desarrolla Java | Manual  | Su version  |
+| Node.js                 | El equipo de Node.js  | Manual  | Su actualizacion  |
+| Dependencias npm (lodash, typescript…) |  Microsoft | Manual  | Su instalación  |
 
 Versión de Java **antes** (paso 5) y **después** (paso 18):
 
 ```
-pega aquí
+version primera: @digop47p-tech ➜ /workspaces/entorno-daw-pablo-diaz (main) $ java -version
+openjdk version "27" 2026-09-15
+OpenJDK Runtime Environment Temurin-27+35 (build 27+35)
+OpenJDK 64-Bit Server VM Temurin-27+35 (build 27+35, mixed mode, sharing)
+
+Ultima version: @digop47p-tech ➜ /workspaces/entorno-daw-pablo-diaz (main) $ java -version
+openjdk version "21" 2023-09-19 LTS
+OpenJDK Runtime Environment Microsoft-8425986 (build 21+35-LTS)
+OpenJDK 64-Bit Server VM Microsoft-8425986 (build 21+35-LTS, mixed mode, sharing)
 ```
 
 Resultado de `npm outdated` (paso 17):
 
 ```
-pega aquí
+@digop47p-tech ➜ /workspaces/entorno-daw-pablo-diaz (main) $ npm outdated
+Package         Current    Wanted   Latest  Location                    Depended by
+@types/lodash  4.14.202  4.14.202  4.17.27  node_modules/@types/lodash  entorno-daw-pablo-diaz
+@types/node    20.11.30  20.11.30   26.6.5  node_modules/@types/node    entorno-daw-pablo-diaz
+lodash          4.17.20   4.17.20   4.18.1  node_modules/lodash         entorno-daw-pablo-diaz
+typescript        5.4.5     5.4.5    7.0.2  node_modules/typescript     entorno-daw-pablo-diaz
 ```
 
 Resultado de `npm audit` **antes** de actualizar lodash (solo el resumen final):
 
 ```
-pega aquí
+1 high severity vulnerability
+
+To address all issues, run:
+  npm audit fix --force
 ```
 
 Resultado de `npm audit` **después**:
 
 ```
-pega aquí
+@digop47p-tech ➜ /workspaces/entorno-daw-pablo-diaz (main) $ npm audit
+found 0 vulnerabilities
 ```
 
 **Mi política de actualizaciones**: si este entorno lo usara un equipo de 5 personas durante todo el curso, ¿qué dejarías en automático y qué fijarías a mano? Justifícalo.
-
+Lo que dejaría en automático seria el editor de Codespace mientras que en manual sería la instalación y actualización de extensiones porque así no tendrían problemas con el almacenamiento debido a la instalación de extensiones que pueden no utilizar.
 > 
 
 ---
@@ -181,5 +200,5 @@ Anota cualquier problema que hayas tenido y cómo lo resolviste (también si usa
 ## 7. Reflexión final
 
 ¿Qué ventaja tiene describir el entorno «como código» frente a instalar cada programa a mano en tu ordenador? Piensa en un equipo con Mac y Windows.
-
+La ventaja que tiene es que te ahorras tiempo, facilitas el trabajo en equipo ya que todos trabajan con una configuración común independientemente de su sistema operativo.
 > 
