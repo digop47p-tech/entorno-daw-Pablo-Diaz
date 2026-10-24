@@ -16,11 +16,14 @@
 Resultado de `java -version` y `node -v` **antes** de instalar nada:
 
 ```
-pega aquí
+@digop47p-tech ➜ /workspaces/entorno-daw-pablo-diaz (main) $ java -version
+bash: java: command not found
+@digop47p-tech ➜ /workspaces/entorno-daw-pablo-diaz (main) $ node -v
+bash: node: command not found
 ```
 
 ¿Por qué crees que aparece ese mensaje? (relaciónalo con la diapositiva «Problemas habituales del entorno»)
-
+Porque posiblemente la extensión o el comando no están todavia instalados
 > 
 
 ### 1.2. Después de la 1.ª reconstrucción (paso 5)
@@ -28,24 +31,31 @@ pega aquí
 Resultado de `java -version`, `node -v` y `jupyter lab --version` **después**:
 
 ```
-pega aquí
+@digop47p-tech ➜ /workspaces/entorno-daw-pablo-diaz (main) $ java -version
+openjdk version "27" 2026-09-15
+OpenJDK Runtime Environment Temurin-27+35 (build 27+35)
+OpenJDK 64-Bit Server VM Temurin-27+35 (build 27+35, mixed mode, sharing)
+@digop47p-tech ➜ /workspaces/entorno-daw-pablo-diaz (main) $ node -v
+v24.22.1
+@digop47p-tech ➜ /workspaces/entorno-daw-pablo-diaz (main) $ jupyter lab --version
+4.6.4
 ```
 
 ¿Qué líneas nuevas han aparecido en `devcontainer.json`? Explica con tus palabras qué hace cada una:
-
+Las nuevas líneas que han aparecido han sido estas:  "ghcr.io/devcontainers/features/python:1": {"installJupyterlab": true, lo que significa que se ha instalado Jupyterlab para poder usar python en el entorno.
 > 
 
 ### 1.3. Comparativa de los dos IDE (paso 6)
 
 |                                         | Editor de GitHub Codespaces | JupyterLab |
 |-----------------------------------------|-----------------------------|------------|
-| ¿Libre o propietario?                   |                             |            |
-| Licencia / empresa o comunidad          |                             |            |
-| ¿Tiene coste? ¿Con qué límites?         |                             |            |
-| ¿Se puede usar fuera de GitHub?         |                             |            |
-| Lo que más me ha gustado                |                             |            |
-| Lo que menos me ha gustado              |                             |            |
-| ¿Para qué tipo de trabajo lo elegiría?  |                             |            |
+| ¿Libre o propietario?                   |       propietario           |  libre     |
+| Licencia / empresa o comunidad          |        empresa              |  comunidad |
+| ¿Tiene coste? ¿Con qué límites?         |Gratis pero con un límite de 1 mes | Gratis y sin coste |
+| ¿Se puede usar fuera de GitHub?         |           No                |     Sí     |
+| Lo que más me ha gustado                |       Sus comandos          |   Python   |
+| Lo que menos me ha gustado              |    Su tiempo de espera      | Algunas veces no cargaba  |
+| ¿Para qué tipo de trabajo lo elegiría?  |    Visual Studio Code       |   Python   |
 
 ---
 
