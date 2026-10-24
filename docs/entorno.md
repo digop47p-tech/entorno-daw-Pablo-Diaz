@@ -63,31 +63,36 @@ Las nuevas líneas que han aparecido han sido estas:  "ghcr.io/devcontainers/fea
 
 | Extensión | ¿Para qué sirve? | ¿Qué cambió al instalarla? | ¿La mantengo? ¿Por qué? |
 |-----------|------------------|----------------------------|-------------------------|
-| Extension Pack for Java |   |   |   |
-| Code Spell Checker      |   |   |   |
+| Extension Pack for Java | Sirve para programar facilmente en Java  |  Trabajas con Java como si estuvieras trabajando en Visual Studio Code |  Sí, porque facilita el trabajo con Java |
+| Code Spell Checker      |   Sirve para dectectar errores ortográficos|  Al tratarse de un comando en ingles las palabras en español vienen subrayadas como si tuvieran un error ortográfico |  No, porque como vamos a escribir en español no necesitamos un comando en inglés. |
 
 ¿Qué diferencia hay entre instalar una extensión **solo desde el panel** y añadirla **también a `devcontainer.json`**?
 
-> 
+> La diferencia es que cuando lo instalas solo desde el panel , la extensión no lo puedes utilizar donde tu quieres, mientras que cuando la añades a donde quieres puedes utilizar la extension donde en el archivo que quieras trabajar.
 
 ---
 
 ## 3. Personalización y automatización (CE 2.c)
 
-- **Tema visual elegido** (paso 10) y por qué:
-- **Ajuste del proyecto** (paso 10). ¿Qué archivo se ha creado y qué contiene?
+- **Tema visual elegido** (paso 10) y por qué: El tema visual elegido ha sido Rojo red, porque me gustaba la combinación entre escribir en rojo y amarillo
+- **Ajuste del proyecto** (paso 10). ¿Qué archivo se ha creado y qué contiene? El archivo que ha aparecido ha sido .vscode/settings.json que contiene "editor.formatOnSave":true
 
 ```
-pega aquí el contenido de .vscode/settings.json
+{
+    "editor.formatOnSave": true
+}
 ```
 
-- **Atajo de teclado** (paso 11). ¿Qué acción, qué combinación y para qué te sirve?
-- **Snippet** (paso 12). ¿Qué escribes y qué aparece?
-- **Automatización al crear el entorno** (paso 14). ¿Qué hace `postCreateCommand` y qué archivos/carpetas han aparecido después de reconstruir?
+- **Atajo de teclado** (paso 11). ¿Qué acción, qué combinación y para qué te sirve? Para crear un atajo de teclado, primero te tienes que meter en ajuste y entrar en la sección Métodos abreviados de teclado y buscar la palabra rebuild container. La combinación del atajo es : Ctrl+Option+R. EL atajo sirve para reconstruir el entorno facilmente.
+- **Snippet** (paso 12). ¿Qué escribes y qué aparece? 
+Para los Snippets tiene que entrar en ajuste, luego en paletas de comandos y tienes que buscar Configure Snippets. Con este comando puedes crear un Snippets o configurar los Snippets de nuestro repositorio. Cuando lo creas, aparecera un archivo llamado .vscode/nombre que hemos elegido.code-snippets.
+- **Automatización al crear el entorno** (paso 14). ¿Qué hace `postCreateCommand` y qué archivos/carpetas han aparecido después de reconstruir? 
+Lo que hace postCreateCommand es decargar solo el npm install. Cuando lo hace solo al crear el entorno se descargar los archivos/carpetas lodash y typescript que estan declaradas en package.json.
 - **Tareas** (paso 13). ¿Cuántas tareas hay en `tasks.json` y qué hace cada una?
+En tasks.json hay tres tareas que son: Java,TypeScript y Build completo. Lo que hace Java es compilar,empaquetar y ejecutar archivos, mientras que TypeScript hace es compilar y ejecutar archivos. Build completo es una combinación de Java y TypeScript.
 
 ¿Qué parte de toda esta configuración es **personal** (solo para ti) y qué parte es **del proyecto** (la recibe cualquiera que abra el repositorio)?
-
+La parte personal de esta combinación son los atajos de teclado ya que por ejemplo para copiar algo yo tengo una combinación mientras que otra persona puede tener otra. La parte que la recibe cualquiera que abra el repositorio puede el tema de configuración de los snippets que he realizado para mi repositorio.
 > 
 
 ---
@@ -97,7 +102,23 @@ pega aquí el contenido de .vscode/settings.json
 Salida completa de la tarea **Build completo** (paso 15):
 
 ```
-pega aquí
+=== FACTURA generada con Java 27 ===
+Dominio web anual              12.00 EUR
+Alojamiento web                59.90 EUR
+Logotipo corporativo          150.00 EUR
+-----------------------------------------
+Base imponible                221.90 EUR
+IVA (21 %)                     46.60 EUR
+TOTAL                         268.50 EUR
+
+=== FACTURA generada con Node.js v24.22.1 ===
+Dominio web anual              12.00 EUR
+Alojamiento web                59.90 EUR
+Logotipo corporativo          150.00 EUR
+-----------------------------------------
+Base imponible                221.90 EUR
+IVA (21 %)                     46.60 EUR
+TOTAL                         268.50 EUR
 ```
 
 | Lenguaje | Archivo fuente | Herramienta que lo traduce | Archivo generado | Cómo se ejecuta |
